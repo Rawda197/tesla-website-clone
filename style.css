@@ -1,0 +1,271 @@
+/* إعادة تعيين الهوامش والتعبئة */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #ffffff;
+    font-family: "M PLUS 1", sans-serif;
+    overflow-x: hidden; /* لتجنب ظهور شريط التمرير الأفقي */
+}
+
+header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: 32px 56px;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+}
+
+a.logo {
+    height: 12px;
+    width: 100px;
+    color: inherit;
+}
+
+header a {
+    color: inherit;
+}
+
+header nav a {
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+header nav.center {
+    text-align: center;
+}
+
+header nav.right {
+    text-align: right;
+}
+
+section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* توزيع المحتوى بين أعلى وأسفل الصفحة */
+    padding: 50px 20px; /* إتاحة مساحة حول النصوص */
+    text-align: center;
+}
+
+section .content {
+    color: #ffffff; /* لون النص الأبيض */
+    padding: 0 20px; /* إتاحة مساحة حول النصوص */
+}
+
+section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+}
+
+section p {
+    font-size: 1.5rem; /* حجم نص أكبر لسهولة القراءة */
+    margin-bottom: 2rem;
+}
+
+section .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: auto; /* دفع الأزرار إلى أسفل الصفحة */
+}
+
+section .buttons a:hover {
+    background-color: #eaeef278; /* لون أزرق داكن عند التمرير فوق الزر */
+    color: #fff;
+}
+
+section .buttons a:first-child:hover {
+    background-color: #0056b3;
+    border: none;
+}
+
+section .buttons a {
+    display: block;
+    background-color: #fff; /* اللون الأبيض */
+    color: #000; /* النص باللون الأسود */
+    padding: 12px 50px;
+    margin: 310px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    border: 2px solid #fffafa; /* إضافة حد أسود */
+}
+
+section .buttons a:first-child {
+    background-color: #007bff; /* اللون الأزرق */
+    color: #fff; /* النص باللون الأبيض */
+    border: none; /* إزالة الحد للزر الأزرق */
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+    } 
+    
+    .backdrop {
+        display: block; /* يظهر الخلفية على الشاشات الصغيرة */
+    }
+
+    section .buttons a {
+        display: block;
+        background-color: #fff; /* اللون الأبيض */
+        color: #000; /* النص باللون الأسود */
+        padding: 12px 50px;
+        margin: 600px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 500;
+        border: 2px solid #fffafa; /* إضافة حد أسود */
+    }
+    
+    section .buttons a:first-child {
+        background-color: #007bff; /* اللون الأزرق */
+        color: #fff; /* النص باللون الأبيض */
+        border: none; /* إزالة الحد للزر الأزرق */
+    }
+    
+    
+
+
+
+
+
+}
+
+aside {
+    position: fixed;
+    transition: right .4s ease;
+    right: -320px;
+    width: 250px; /* ضبط العرض المناسب للقائمة */
+    height: 100%;
+    background-color: #f6f4f4;
+    color: #000;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+aside.active {
+    right: 0;
+}
+
+aside a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 12px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+aside button.close {
+    font-size: 24px;
+    border: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    padding: 10px;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.backdrop {
+    display: none; /* إخفاء الخلفية بشكل افتراضي */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* عرض القائمة عند تفعيلها */
+.backdrop.active,
+aside.active {
+    display: block;
+}
+/* تنسيق القسم الأخير من الصفحة */
+footer {
+    background-color: #000000; /* خلفية سوداء */
+    color: #ffffff; /* نص أبيض */
+    text-align: center; /* توسيط النص */
+    padding: 40px 20px; /* حشو من الأعلى والأسفل والجانبين */
+    position: relative; /* وضع النسق بالنسبة للعنصر الحاوي */
+    bottom: 0;
+    width: 100%;
+    font-size: 0.8rem; /* حجم الخط أصغر قليلاً */
+}
+
+/* تنسيق معلومات الأسعار */
+.footer-info {
+    margin-bottom: 30px; /* مسافة بين المعلومات الأخرى والروابط */
+}
+
+/* تنسيق عنوان المعلومات */
+.footer-info h2 {
+    margin-bottom: 15px; /* مسافة أسفل العنوان */
+}
+
+/* تنسيق قائمة معلومات الأسعار */
+.footer-info ul {
+    list-style-type: none; /* إزالة النقط من القائمة */
+    padding: 0;
+}
+
+/* تنسيق العناصر في قائمة معلومات الأسعار */
+.footer-info ul li {
+    margin: 40px 100px; /* مسافة بين العناصر في القائمة */
+}
+
+/* تنسيق قائمة الروابط في الـ footer */
+.footer-menu ul {
+    list-style-type: none; /* إزالة النقط من القائمة */
+    padding: 0;
+    margin: 0; /* إزالة الهوامش الافتراضية */
+}
+
+/* تنسيق العناصر في قائمة الروابط */
+.footer-menu ul li {
+    display: inline;
+    margin: 0 15px; /* مسافة بين العناصر */
+}
+
+/* تنسيق الروابط في قائمة الروابط */
+.footer-menu a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* تنسيق الروابط عند التمرير فوقها */
+.footer-menu a:hover {
+    text-decoration: underline;
+}
+
+/* تنسيق النص في الـ footer */
+footer p {
+    margin: 0; /* إزالة الهوامش الافتراضية */
+}
